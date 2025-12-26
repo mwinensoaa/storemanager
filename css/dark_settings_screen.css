@@ -1,0 +1,93 @@
+/* General Scene Style */
+.root {
+    -fx-background-color: #4a4a4a; /* Dark background */
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+     -fx-border-color: #2b2b2b #2b2b2b #2b2b2b #2b2b2b;
+}
+
+#pane{
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+    -fx-border-color: #2b2b2b #2b2b2b #2b2b2b #2b2b2b; /* Corresponding border colors */
+}
+
+/* TextField Style */
+.text-field {
+    -fx-background-color: #4a4a4a; /* Darker input field */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* ComboBox Style */
+.combo-box {
+    -fx-background-color: #4a4a4a; /* Darker dropdown */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* ComboBox Popup Style */
+.combo-box .combo-box-popup {
+    -fx-background-color: #4a4a4a; /* Dark background for the popup */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+}
+
+/* ComboBox List Cell Style */
+.combo-box .combo-box-list-cell {
+    -fx-text-fill: #f0f0f0; /* Light text color in the dropdown */
+    -fx-background-color: #4a4a4a; /* Background color for items in the dropdown */
+}
+
+.combo-box .combo-box-popup .list-view .list-cell {
+    -fx-background-color: #4a4a4a; /* Background color for list cells */
+}
+
+.combo-box .combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #3d3d3d; /* Background color for hovered list cells */
+}
+
+/* ComboBox Display Area (when a value is selected) */
+.combo-box .text {
+    -fx-fill: #f0f0f0; /* Light text color for selected value */
+    -fx-background-color: #4a4a4a; /* Background color matching the ComboBox */
+}
+
+/* Label Style */
+.label {
+    -fx-text-fill: #2E2E2E; /* Light gray text color */
+    -fx-font-weight: bold; /* Bold font */
+}
+
+/* ImageView Style */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 1); /* Shadow effect */
+    -fx-background-color: #2d2d2d; /* Dark background behind image */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+}
+
+/* Button Style */
+.button {
+    -fx-background-color: linear-gradient(#3a3a3a, #2d2d2d); /* Gradient background */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #4a4a4a; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-font-size: 11px; /* Font size */
+    -fx-font-weight: bold; /* Bold font */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1); /* Shadow effect */
+}
+
+.button:hover {
+    -fx-background-color: #4a4a4a; /* Darker background on hover */
+    -fx-text-fill: #ffffff; /* Lighter text on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #2d2d2d; /* Darker background when pressed */
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 1); /* Inner shadow effect */
+}

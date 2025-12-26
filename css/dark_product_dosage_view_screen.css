@@ -1,0 +1,81 @@
+/* General Scene Style */
+.root {
+    -fx-background-color: #4a4a4a; /* Dark background */
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+     -fx-border-color: #2b2b2b #2b2b2b #2b2b2b #2b2b2b;
+}
+
+#pane{
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+    -fx-border-color: #2b2b2b #2b2b2b #2b2b2b #2b2b2b; /* Corresponding border colors */
+}
+
+/* TextField Style */
+.text-field {
+    -fx-background-color: #4a4a4a; /* Darker input field */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* Label Style */
+.label {
+    -fx-text-fill: #2E2E2E; /* Light gray text color */
+    -fx-font-weight: bold; /* Bold font */
+}
+
+/* TextArea Style */
+.text-area {
+    -fx-background-color: #4a4a4a; /* Dark background */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+}
+
+.text-area .content {
+    -fx-background-color: #4a4a4a; /* Match TextArea background */
+}
+
+.text-area .scroll-pane {
+    -fx-background-color: #4a4a4a; /* Match TextArea background */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* Scroll bar styling */
+.text-area .scroll-bar {
+    -fx-background-color: #4a4a4a; /* Match TextArea background */
+}
+
+.text-area .scroll-bar .thumb {
+    -fx-background-color: #3d3d3d; /* Darker thumb */
+    -fx-background-insets: 0;
+    -fx-background-radius: 5px; /* Rounded corners */
+}
+
+
+/* Button Style */
+.button {
+    -fx-background-color: linear-gradient(#3a3a3a, #2d2d2d); /* Gradient background */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #4a4a4a; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-font-size: 11px; /* Font size */
+    -fx-font-weight: bold; /* Bold font */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1); /* Shadow effect */
+}
+
+.button:hover {
+    -fx-background-color: #4a4a4a; /* Darker background on hover */
+    -fx-text-fill: #ffffff; /* Lighter text on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #2d2d2d; /* Darker background when pressed */
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 1); /* Inner shadow effect */
+}
+

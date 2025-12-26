@@ -1,0 +1,48 @@
+/* General Scene Style */
+.root {
+    -fx-background-color: #2E2E2E; /* Dark background */
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+     -fx-border-color: #616161 #616161 #616161 #616161;
+}
+
+#pane{
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+    -fx-border-color: #616161 #616161 #616161 #616161; /* Corresponding border colors */
+}
+
+/* TextField Style */
+.text-field {
+    -fx-background-color: #2d2d2d; /* Darker input field */
+    -fx-text-fill: #e0e0e0; /* Softer light text */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+
+/* Label Style */
+.label {
+    -fx-text-fill: #616161; /* Light gray text color */
+    -fx-font-weight: bold; /* Bold font */
+}
+
+/* Button Style */
+.button {
+    -fx-background-color: #3a3a3a; /* Darker button */
+    -fx-text-fill: #e0e0e0; /* Softer light text */
+    -fx-border-color: #4a4a4a; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+
+/* TextArea Style */
+.text-area {
+    -fx-background-color: #2d2d2d; /* Darker background */
+    -fx-text-fill: #e0e0e0; /* Softer light text */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-focus-color: transparent; /* Remove focus color */
+    -fx-faint-focus-color: transparent; /* Remove faint focus color */
+}

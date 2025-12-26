@@ -1,0 +1,264 @@
+
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 0 2 0 0; /* Adjust padding to make room for the button */
+    -fx-border-width: 0 0 1 0; /* Only show the bottom border */
+     -fx-border-color: white;
+    -fx-border-insets: 0, 1 1 0 2, 2 2 1 3, 3 3 2 4;
+    -fx-border-radius: 0;
+     -fx-text-fill: white;
+}
+
+
+.button{
+ -fx-background-color: transparent;
+    -fx-text-fill: #333;
+    -fx-font-family: Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-border-color: #333;
+    -fx-border-width: 1px;
+   -fx-background-radius: 1em;
+}
+
+.button:hover {
+    -fx-background-color: #333;
+    -fx-text-fill: white;
+}
+
+.button:pressed {
+    -fx-background-color: #555;
+}
+
+
+
+.combo-box .list-cell:filled:selected .text,
+.choice-box .list-cell:filled:selected .text {
+    -fx-fill: white;
+    -jfx-focus-color: white;
+}
+
+.combo-box {
+  -fx-border-color: white;
+  -fx-background-color: transparent;
+  -fx-border-width: 0 0 1 0;
+  -fx-background-radius: 0;
+}
+
+.combo-box .text{
+    -fx-fill: white;
+}
+
+.combo-box .combo-box-popup .list-view .list-cell{
+   -fx-background-color: #333;
+}
+.combo-box .combo-box-popup .list-view .list-cell:hover{
+   -fx-background-color: green;
+}
+
+
+/* General Scene Style */
+.root {
+    -fx-background-color: #4a4a4a; /* Dark background */
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+     -fx-border-color: #2b2b2b #2b2b2b #2b2b2b #2b2b2b;
+}
+
+#anchor{
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+    -fx-border-color: #2b2b2b #2b2b2b #2b2b2b #2b2b2b; /* Corresponding border colors */
+}
+
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: #3c3f41;
+    -fx-control-inner-background: #3c3f41;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2b2b2b;
+}
+
+.table-view .column-header, .table-view .column-header .label {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #343434; /* Header labels text color */
+}
+
+.table-view .filler {
+    -fx-background-color: #3c3f41;
+}
+
+.table-view .cell {
+    -fx-border-color: #3c3f41;
+    -fx-alignment: CENTER;
+    -fx-background-color: #444444; /* Changed background color */
+    -fx-text-fill: #ffffff;
+}
+
+.table-view .row-cell:filled:selected, .table-view .cell:selected {
+    -fx-background-color: #565a5c;
+}
+/* TableView styling */
+.table-view {
+    -fx-background-color: #3c3f41;
+    -fx-control-inner-background: #3c3f41;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2b2b2b;
+}
+
+.table-view .column-header, .table-view .column-header .label {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #343434; /* Header labels text color */
+}
+
+.table-view .filler {
+    -fx-background-color: #3c3f41;
+}
+
+.table-view .cell {
+    -fx-border-color: #3c3f41;
+    -fx-alignment: CENTER;
+    -fx-background-color: #444444; /* Changed background color */
+    -fx-text-fill: #ffffff;
+}
+
+.table-view .row-cell:filled:selected, .table-view .cell:selected {
+    -fx-background-color: #565a5c;
+}
+/* TextField Style */
+.text-field {
+    -fx-background-color: #4a4a4a; /* Darker input field */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* ComboBox Style */
+.combo-box {
+    -fx-background-color: #4a4a4a; /* Darker dropdown */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* ComboBox Popup Style */
+.combo-box .combo-box-popup {
+    -fx-background-color: #4a4a4a; /* Dark background for the popup */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+}
+
+/* ComboBox List Cell Style */
+.combo-box .combo-box-list-cell {
+    -fx-text-fill: #f0f0f0; /* Light text color in the dropdown */
+    -fx-background-color: #4a4a4a; /* Background color for items in the dropdown */
+}
+
+.combo-box .combo-box-popup .list-view .list-cell {
+    -fx-background-color: #4a4a4a; /* Background color for list cells */
+}
+
+.combo-box .combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #3d3d3d; /* Background color for hovered list cells */
+}
+
+/* ComboBox Display Area (when a value is selected) */
+.combo-box .text {
+    -fx-fill: #f0f0f0; /* Light text color for selected value */
+    -fx-background-color: #4a4a4a; /* Background color matching the ComboBox */
+}
+
+/* Label Style */
+.label {
+    -fx-text-fill: #2E2E2E; /* Light gray text color */
+    -fx-font-weight: bold; /* Bold font */
+}
+
+/* ImageView Style */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 1); /* Shadow effect */
+    -fx-background-color: #2d2d2d; /* Dark background behind image */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+}
+
+/* Button Style */
+.button {
+    -fx-background-color: linear-gradient(#3a3a3a, #2d2d2d); /* Gradient background */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #4a4a4a; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-font-size: 11px; /* Font size */
+    -fx-font-weight: bold; /* Bold font */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0, 1); /* Shadow effect */
+}
+
+.button:hover {
+    -fx-background-color: #4a4a4a; /* Darker background on hover */
+    -fx-text-fill: #ffffff; /* Lighter text on hover */
+}
+
+.button:pressed {
+    -fx-background-color: #2d2d2d; /* Darker background when pressed */
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 1); /* Inner shadow effect */
+}
+
+
+.date-picker {
+    -fx-background-color: #4a4a4a; /* Darker input field */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+}
+
+.date-picker .text-field {
+    -fx-background-color: #4a4a4a; /* Match DatePicker background */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #4a4a4a; /* Match DatePicker background */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+.date-picker .arrow {
+    -fx-background-color: #2b2b2b; /* Match DatePicker background */
+    -fx-text-fill: #f0f0f0; /* Light text */
+}
+
+.date-picker-popup {
+    -fx-background-color: #4a4a4a; /* Dark background for the popup */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+}
+
+.date-picker .calendar-pane .day-cell {
+    -fx-background-color: #4a4a4a; /* Dark background for day cells */
+    -fx-text-fill: #f0f0f0; /* Light text */
+}
+
+.date-picker .calendar-pane .day-cell:hover {
+    -fx-background-color: #3d3d3d; /* Background color for hovered day cells */
+}
+

@@ -1,0 +1,120 @@
+/* General Scene Style */
+.root {
+    -fx-background-color: #2E2E2E; /* Dark background */
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+     -fx-border-color: #616161 #616161 #616161 #616161;
+}
+
+#pane{
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+    -fx-border-color: #616161 #616161 #616161 #616161; /* Corresponding border colors */
+}
+
+/* TextField Style */
+.text-field {
+    -fx-background-color: #2d2d2d; /* Darker input field */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* ComboBox Style */
+.combo-box {
+    -fx-background-color: #2d2d2d; /* Darker dropdown */
+    -fx-text-fill: black; /* Default text color */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* ComboBox Popup Style */
+.combo-box .combo-box-popup {
+    -fx-background-color: #2d2d2d; /* Dark background for the popup */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+}
+
+/* ComboBox List Cell Style */
+.combo-box .combo-box-list-cell {
+    -fx-text-fill: black; /* Default text color in the dropdown */
+    -fx-background-color: #2d2d2d; /* Background color for items in the dropdown */
+}
+
+.combo-box .combo-box-popup .list-view .list-cell {
+    -fx-background-color: #333;
+}
+
+.combo-box .combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: green;
+}
+
+/* ComboBox Display Area (when a value is selected) */
+.combo-box .text {
+    -fx-fill: white; /* Light text color for selected value */
+}
+
+/* Label Style */
+.label {
+    -fx-text-fill: #616161; /* Light gray text color */
+    -fx-font-weight: bold; /* Bold font */
+}
+
+/* ImageView Style */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 5, 0, 0, 1); /* Shadow effect */
+    -fx-background-color: #2d2d2d; /* Dark background behind image */
+    -fx-border-radius: 5px; /* Rounded corners */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+}
+
+/* Button Style */
+.button {
+    -fx-background-color: #3a3a3a; /* Darker button */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #4a4a4a; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+/* DatePicker Style */
+.date-picker {
+    -fx-background-color: #2d2d2d; /* Darker input field */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #3a3a3a; /* Darker button */
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #f0f0f0; /* Light arrow */
+}
+
+.date-picker .popup {
+    -fx-background-color: #2d2d2d; /* Dark background for the popup */
+    -fx-border-color: #3d3d3d; /* Border color */
+}
+
+.date-picker .month-cell {
+    -fx-background-color: #333; /* Background color for month cells */
+}
+
+.date-picker .month-cell:hover {
+    -fx-background-color: green; /* Hover color for month cells */
+}
+
+.date-picker .month-cell .text {
+    -fx-fill: #f0f0f0; /* Light text color for month cells */
+}
+
+.date-picker .today {
+    -fx-background-color: #4a4a4a; /* Background color for today */
+}
+
+.date-picker .selected {
+    -fx-background-color: #616161; /* Background color for selected date */
+}

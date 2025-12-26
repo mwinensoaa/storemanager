@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/main/resources/lang_ar_SA.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/lang_en_US.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/lang_es_ES.properties" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/lang_fr_FR.properties" charset="UTF-8" />
+  </component>
+</project>

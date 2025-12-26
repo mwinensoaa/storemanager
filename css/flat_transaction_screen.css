@@ -1,0 +1,73 @@
+/* General Scene Style */
+.root {
+    -fx-background-color: #2E2E2E; /* Dark background */
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+     -fx-border-color: #616161 #616161 #616161 #616161;
+}
+
+#anchor{
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+    -fx-border-color: #616161 #616161 #616161 #616161; /* Corresponding border colors */
+}
+
+/* TextField Style */
+.text-field {
+    -fx-background-color: #2d2d2d; /* Darker input field */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-prompt-text-fill: #a0a0a0; /* Light gray placeholder text */
+    -fx-border-color: #3d3d3d; /* Border color */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: #444444; /* Slightly lighter dark gray background */
+    -fx-control-inner-background: #444444;
+    -fx-padding: 10;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: #4F4F4F; /* Slightly lighter border */
+    -fx-border-width: 1;
+    -fx-border-radius: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #4F4F4F; /* Lighter dark gray background */
+    -fx-border-color: #3C3C3C;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .column-header, .table-view .column-header .label {
+    -fx-background-color: transparent;
+    -fx-text-fill: #B0B0B0; /* Light gray text */
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+}
+
+.table-view .cell {
+    -fx-border-color: transparent;
+    -fx-alignment: CENTER;
+    -fx-text-fill: #FFFFFF; /* White text */
+}
+
+.table-view .row-cell:filled:selected, .table-view .cell:selected {
+    -fx-background-color: #616161; /* Medium gray for selected cells */
+}
+
+
+/* Label Style */
+.label {
+    -fx-text-fill: #616161; /* Light gray text color */
+    -fx-font-weight: bold; /* Bold font */
+}
+
+/* Button Style */
+.button {
+    -fx-background-color: #3a3a3a; /* Darker button */
+    -fx-text-fill: #f0f0f0; /* Light text */
+    -fx-border-color: #4a4a4a; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Rounded corners */
+}
+

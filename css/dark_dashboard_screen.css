@@ -1,0 +1,90 @@
+/* Root scene styling */
+.root {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+    -fx-border-color: #4a4a4a #4a4a4a #4a4a4a #4a4a4a;
+}
+
+
+#hbHeader{
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+    -fx-border-color: #4a4a4a #4a4a4a #4a4a4a #4a4a4a; /* Corresponding border colors */
+}
+
+
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: #3c3f41;
+    -fx-control-inner-background: #3c3f41;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 10;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2b2b2b;
+}
+
+.table-view .column-header, .table-view .column-header .label {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #343434; /* Header labels text color */
+}
+
+.table-view .filler {
+    -fx-background-color: #3c3f41;
+}
+
+.table-view .cell {
+    -fx-border-color: #3c3f41;
+    -fx-alignment: CENTER;
+    -fx-background-color: #444444; /* Changed background color */
+    -fx-text-fill: #ffffff;
+}
+
+.table-view .row-cell:filled:selected, .table-view .cell:selected {
+    -fx-background-color: #565a5c;
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #4a4a4a;
+    -fx-text-fill: #ffffff;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8 15;
+}
+
+.button:hover {
+    -fx-background-color: #5c5c5c;
+}
+
+.button:pressed {
+    -fx-background-color: #3a3a3a;
+}
+
+/* TextField styling */
+.text-field {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #ffffff;
+    -fx-prompt-text-fill: #757575;
+    -fx-border-color: #565a5c;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 4;
+}
+
+/* Label styling */
+.label {
+    -fx-text-fill: #ffffff;
+}
+
+/* Tooltip styling */
+.tooltip {
+    -fx-background-color: #3c3f41;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #565a5c;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-padding: 8;
+}

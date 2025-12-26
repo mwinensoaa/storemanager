@@ -1,0 +1,30 @@
+.root{
+  -fx-background-color: #929292;
+   -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+   -fx-border-color: blue blue blue blue;
+}
+
+#pane{
+    -fx-border-width: 3 3 3 3; /* Top, right, bottom, left border widths */
+    -fx-border-color: blue blue blue blue; /* Corresponding border colors */
+}
+.button{
+    -fx-background-color: transparent;
+    -fx-text-fill: #333;
+    -fx-font-family: Arial, sans-serif;
+    -fx-font-size: 11px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-border-color: #333;
+    -fx-border-width: 1px;
+     -fx-pref-height: 2px
+}
+
+.button:hover {
+    -fx-background-color: #333;
+    -fx-text-fill: white;
+}
+
+.button:pressed {
+    -fx-background-color: #555;
+}

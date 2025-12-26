@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="253.0" prefWidth="294.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mwinensoaa.storemanager.controller.NewProductDosageController">
+   <top>
+      <Pane fx:id="pane" prefHeight="26.0" prefWidth="294.0" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIconView fx:id="lbClose" fill="WHITE" glyphName="CLOSE" layoutX="265.0" layoutY="20.0" size="20" />
+            <ImageView fx:id="imgLogo" fitHeight="19.0" fitWidth="26.0" layoutX="7.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="dialogTitle" alignment="CENTER" layoutX="69.0" layoutY="4.0" prefHeight="17.0" prefWidth="162.0" text="Product dosage" />
+
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="212.0" prefWidth="22.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane prefHeight="212.0" prefWidth="22.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="28.0" prefWidth="316.0" />
+   </bottom>
+   <center>
+      <HBox prefHeight="278.0" prefWidth="272.0" spacing="3.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="252.0" prefWidth="116.0" spacing="3.0">
+               <children>
+                  <TextField fx:id="tfSearch" prefHeight="25.0" prefWidth="166.0" promptText="Search" />
+                  <ListView fx:id="listView" prefHeight="149.0" prefWidth="116.0" />
+                  <HBox alignment="CENTER" prefHeight="32.0" prefWidth="114.0">
+                     <children>
+                        <FontAwesomeIconView fx:id="faRefresh" fill="#59c940" glyphName="REFRESH" size="25" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="321.0" prefWidth="132.0" spacing="3.0">
+               <children>
+                  <Pane prefHeight="33.0" prefWidth="132.0">
+                     <children>
+                        <Label fx:id="lbDosage" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="3.0" prefHeight="20.0" prefWidth="125.0" text="Dosage" />
+                     </children>
+                  </Pane>
+                  <TextArea fx:id="taDosage" prefHeight="146.0" prefWidth="132.0" promptText="Write dosage here" wrapText="true" />
+                  <Button fx:id="btnSave" prefHeight="15.0" prefWidth="89.0" text="Save" textFill="WHITE" />
+               </children>
+            </VBox>
+         </children></HBox>
+   </center>
+</BorderPane>

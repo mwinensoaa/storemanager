@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="297.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mwinensoaa.storemanager.controller.TransactionController">
+   <top>
+      <Pane fx:id="anchor" prefHeight="37.0" prefWidth="554.0" BorderPane.alignment="CENTER">
+         <children>
+            <FontAwesomeIconView fx:id="btnClose" fill="WHITE" glyphName="CLOSE" layoutX="604.0" layoutY="23.0" size="20" />
+            <ImageView fitHeight="19.0" fitWidth="48.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo4.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="243.0" layoutY="10.0" prefHeight="17.0" prefWidth="159.0" text="Sales Dashboard" />
+         </children>
+      </Pane>
+   </top>
+   <left>
+      <Pane prefHeight="212.0" prefWidth="22.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <Pane prefHeight="212.0" prefWidth="22.0" BorderPane.alignment="CENTER" />
+   </right>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="606.0">
+         <children>
+            <Region prefHeight="48.0" prefWidth="23.0" />
+            <ImageView fx:id="imgProduct" fitHeight="48.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" />
+            <Region prefHeight="48.0" prefWidth="87.0" />
+            <Button fx:id="btnProcessTransaction" prefHeight="29.0" prefWidth="186.0" text="Save transaction" textFill="WHITE" />
+            <Region prefHeight="48.0" prefWidth="47.0" />
+            <VBox prefHeight="37.0" prefWidth="157.0">
+               <children>
+                  <Label fx:id="lbTotalAmount" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="159.0" text="Total Amount" />
+                  <Label fx:id="lbGrandTotal" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="12.0" prefWidth="156.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="18.0" prefWidth="562.0" />
+            <HBox prefHeight="197.0" prefWidth="562.0" spacing="3.0">
+               <children>
+                  <VBox prefHeight="212.0" prefWidth="171.0" spacing="3.0">
+                     <children>
+                        <TextField fx:id="tfSearch" prefHeight="25.0" prefWidth="166.0" promptText="Search" />
+                        <ListView fx:id="listView" prefHeight="148.0" prefWidth="171.0" />
+                        <TextField fx:id="tfQuantity" prefHeight="25.0" prefWidth="166.0" promptText="Quantity" />
+                        <Button fx:id="btnAddItem" mnemonicParsing="false" prefHeight="25.0" prefWidth="172.0" text="Add" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="196.0" prefWidth="220.0">
+                     <children>
+                        <TableView fx:id="tableView" prefHeight="196.0" prefWidth="207.0">
+                          <columns>
+                            <TableColumn fx:id="tcProductName" prefWidth="115.0" text="Product" />
+                            <TableColumn fx:id="tcQuantity" prefWidth="44.0" text="Qty" />
+                              <TableColumn fx:id="tcTotal" prefWidth="56.0" text="Price" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="203.0" prefWidth="22.0">
+                     <children>
+                        <Button fx:id="btnRemoveItem" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text=".">
+                           <graphic>
+                              <FontAwesomeIconView fill="WHITE" glyphName="MINUS" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="181.0" layoutY="10.0" prefHeight="196.0" prefWidth="175.0">
+                     <children>
+                        <TextArea fx:id="taReceipt" editable="false" prefHeight="221.0" prefWidth="104.0" style="-fx-font-family: Consolas;">
+                           <font>
+                              <Font size="10.0" />
+                           </font></TextArea>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

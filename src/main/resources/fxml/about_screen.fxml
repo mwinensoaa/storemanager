@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="553.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mwinensoaa.storemanager.controller.AboutFormController">
+   <ImageView fitHeight="126.0" fitWidth="238.0" layoutX="343.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../images/logo4.png" />
+   </ImageView>
+   <Pane layoutX="-1.0" layoutY="-3.0" prefHeight="53.0" prefWidth="845.0" style="-fx-background-color: linear-gradient(to right top, #6c5ce7, #8554ed, #9f48f1, #b935f2, #d300f0);" />
+   <ImageView fitHeight="32.0" fitWidth="60.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@../images/logo4.png" />
+      </image>
+   </ImageView>
+</AnchorPane>

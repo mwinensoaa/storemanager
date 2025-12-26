@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mwinensoaa.storemanager.controller.HomeScreenController">
+   <top>
+      <HBox fx:id="hbHeader" alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="pane" prefHeight="32.0" prefWidth="749.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="imgAppLogo" fitHeight="29.0" fitWidth="40.0" layoutX="4.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="51.0" layoutY="5.0" prefHeight="17.0" prefWidth="86.0" text="Storemanager" />
+               </children></Pane>
+            <Region prefHeight="0.0" prefWidth="113.0" HBox.hgrow="ALWAYS" />
+            <FontAwesomeIconView fx:id="lbMin" fill="WHITE" glyphName="MINUS" size="20" wrappingWidth="21.714285850524902" HBox.hgrow="ALWAYS" />
+            <FontAwesomeIconView fx:id="lbClose" fill="WHITE" glyphName="CLOSE" size="20" wrappingWidth="29.714285850524902" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox fx:id="vbLeft" alignment="TOP_CENTER" prefHeight="421.0" prefWidth="160.0" spacing="5.0">
+         <children>
+            <Pane prefHeight="15.0" prefWidth="160.0" />
+            <Button fx:id="btnTransaction" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" text="New transaction" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnProductList" layoutX="31.0" layoutY="62.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="150.0" text="View products">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnCashiers" layoutX="28.0" layoutY="279.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="149.0" text="View cashiers">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnDiscountView" layoutX="27.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="148.0" text="View discounts">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnTaxesView" layoutX="30.0" layoutY="200.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="148.0" text="View taxes">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnChangePass" layoutX="26.0" layoutY="178.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="147.0" text="Change pass">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnDosageView" layoutX="15.0" layoutY="242.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="150.0" text="View dosages">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnLogout" layoutX="26.0" layoutY="234.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="150.0" text="Logout">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="401.0" prefWidth="641.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="14.0" prefWidth="693.0" />
+            <TableView fx:id="tableView" prefHeight="319.0" prefWidth="587.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="tcProductId" prefWidth="71.0" text="Product Id" />
+                  <TableColumn fx:id="tcProductName" prefWidth="108.0" text="Product name" />
+                  <TableColumn fx:id="tcQuantity" prefWidth="119.0" text="Quantity in stock" />
+                  <TableColumn fx:id="tcPackSize" prefWidth="62.0" text="Pack size" />
+                  <TableColumn fx:id="tcPackPrice" prefWidth="53.0" text="Pack price" />
+                  <TableColumn fx:id="tcUnitPrice" prefWidth="77.0" text="Unit price" />
+                  <TableColumn fx:id="tcDatePlacedInStock" prefWidth="152.0" text="Date placed in stock" />
+              </columns>
+            </TableView>
+            <HBox spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox prefHeight="99.0" prefWidth="150.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Pane prefHeight="56.0" prefWidth="172.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbTotalInDay" alignment="CENTER" prefHeight="17.0" prefWidth="179.0" text="Total Items Sold Today" textAlignment="CENTER" />
+                              <Label fx:id="lbTotalItemsToday" alignment="CENTER" layoutY="16.0" prefHeight="25.0" prefWidth="184.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="10.0" layoutY="10.0" prefHeight="54.0" prefWidth="172.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbTotalAmountInDay" alignment="CENTER" layoutX="-2.0" prefHeight="17.0" prefWidth="170.0" text="Total Amount Sold Today" textAlignment="CENTER" />
+                              <Label fx:id="lbTotalMoneyToday" alignment="CENTER" layoutY="16.0" prefHeight="24.0" prefWidth="172.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="107.0" prefWidth="141.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Pane prefHeight="46.0" prefWidth="139.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbTotalAllTime" alignment="CENTER" layoutX="-7.0" prefHeight="17.0" prefWidth="176.0" text="Total All-time Items Sale" textAlignment="CENTER" />
+                              <Label fx:id="lbTotalItemsAllTime" alignment="CENTER" layoutY="16.0" prefHeight="31.0" prefWidth="172.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="139.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="lbTotalAmountAllTime" alignment="CENTER" layoutX="-8.0" prefHeight="17.0" prefWidth="164.0" text="Total All-time Amount Sold" textAlignment="CENTER" />
+                              <Label fx:id="lbTotalMoneyAllTime" alignment="CENTER" layoutY="16.0" prefHeight="25.0" prefWidth="165.0" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <Pane prefHeight="99.0" prefWidth="128.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="tfSearch" layoutY="6.0" prefHeight="25.0" prefWidth="129.0" promptText="Search" />
+                        <ImageView fx:id="imgLogo" fitHeight="65.0" fitWidth="119.0" layoutX="11.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true" />
+                        <FontAwesomeIconView fx:id="lbRefresh" fill="#48c33d" glyphName="REFRESH" layoutX="136.0" layoutY="25.0" size="25" />
+                     </children>
+                  </Pane>
+                  <Pane HBox.hgrow="ALWAYS">
+                     <children>
+                        <ImageView fx:id="imgCashier" fitHeight="94.0" fitWidth="71.0" layoutX="-1.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox fx:id="hbBottom" prefHeight="41.0" prefWidth="950.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <right>
+      <VBox fx:id="vbRight" alignment="BOTTOM_CENTER" prefHeight="421.0" prefWidth="147.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnAddProduct" mnemonicParsing="false" prefHeight="28.0" prefWidth="137.0" text="Add product">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnRestockProduct" alignment="TOP_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="28.0" prefWidth="139.0" text="Restock ">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnNewCashier" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="29.0" prefWidth="137.0" text="New Cashier">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnNewTax" mnemonicParsing="false" prefHeight="28.0" prefWidth="135.0" text="New tax">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnStatistics" mnemonicParsing="false" prefHeight="33.0" prefWidth="135.0" text="Statistics">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnDiscount" layoutX="25.0" layoutY="227.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="135.0" text="Discounts">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+            <Button fx:id="btnDosage" layoutX="16.0" layoutY="389.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="New dosage">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSettings" mnemonicParsing="false" prefHeight="33.0" prefWidth="136.0" text="Settings">
+               <font>
+                  <Font size="10.0" />
+               </font></Button>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>

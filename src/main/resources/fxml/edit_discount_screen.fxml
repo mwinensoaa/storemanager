@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="159.0" prefWidth="249.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mwinensoaa.storemanager.controller.EditDiscountController">
+    <center>
+        <VBox alignment="TOP_CENTER" prefHeight="155.0" prefWidth="259.0" spacing="10.0">
+            <children>
+            <VBox>
+               <children>
+                  <Label fx:id="lbProduct" prefHeight="17.0" prefWidth="182.0" text="Product" />
+                      <TextField fx:id="tfProductTitle" prefHeight="31.0" prefWidth="230.0" />
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label fx:id="lbDiscount" prefHeight="17.0" prefWidth="178.0" text="Discount (%)" />
+                      <TextField fx:id="tfDiscount" prefHeight="31.0" prefWidth="230.0" />
+               </children>
+            </VBox>
+            </children>
+        </VBox>
+    </center>
+    <top>
+        <Pane fx:id="pane" prefHeight="33.0" prefWidth="249.0" BorderPane.alignment="CENTER">
+            <children>
+                <FontAwesomeIconView fx:id="lbClose" fill="WHITE" glyphName="CLOSE" layoutX="222.0" layoutY="23.0" size="20" />
+                <ImageView fx:id="imgLogo" fitHeight="25.0" fitWidth="35.0" layoutX="5.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+                <Label fx:id="lbNewDiscount" alignment="CENTER" layoutX="47.0" layoutY="11.0" prefHeight="17.0" prefWidth="156.0" text="Discount" />
+            </children>
+        </Pane>
+    </top>
+    <left>
+        <Pane prefHeight="575.0" prefWidth="31.0" BorderPane.alignment="CENTER" />
+    </left>
+    <right>
+        <Pane prefHeight="454.0" prefWidth="36.0" BorderPane.alignment="CENTER" />
+    </right>
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="48.0" prefWidth="464.0">
+            <children>
+                <Button fx:id="btnSave" prefHeight="27.0" prefWidth="84.0" text="Save " textFill="WHITE" />
+            </children>
+        </HBox>
+    </bottom>
+</BorderPane>
