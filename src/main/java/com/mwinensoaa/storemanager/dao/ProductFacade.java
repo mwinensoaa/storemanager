@@ -9,6 +9,8 @@ public interface ProductFacade {
     void createProduct(Product product);
     Product getProduct(String productId);
     List<Product> getAllProducts();
+    int getProductsCount();
+    int getProductsCount(int count);
     void deleteProduct(String productId);
     void minusProduct(String productName, int numberBought);
     boolean productCodeExists(String productId);

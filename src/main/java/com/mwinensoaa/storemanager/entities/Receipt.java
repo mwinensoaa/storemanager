@@ -6,13 +6,10 @@ import com.mwinensoaa.storemanager.repositories.TaxRepo;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.text.NumberFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class Receipt {
@@ -72,7 +69,7 @@ public class Receipt {
         return Math.round(tax * 100.0) / 100.0;
     }
 
-    public static void clearReceipt(){
+    public static void clearItems(){
         items.clear();
     }
 

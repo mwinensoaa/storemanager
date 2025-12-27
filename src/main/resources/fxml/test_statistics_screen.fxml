@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.storemanager.controller.StatisticsController">
+
+   <!-- TOP SUMMARY -->
+   <top>
+      <HBox spacing="20">
+         <padding>
+            <Insets bottom="15" left="15" right="15" top="15" />
+         </padding>
+         <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="Statistics Dashboard" />
+
+         <Region HBox.hgrow="ALWAYS" />
+
+         <Label fx:id="lblTodaySales" text="Today: ₵0.00" />
+         <Label fx:id="lblMonthSales" text="This Month: ₵0.00" />
+         <Label fx:id="lblNetProfit" style="-fx-text-fill:green; -fx-font-weight:bold;" text="Net Profit: ₵0.00" />
+      </HBox>
+   </top>
+
+   <!-- MAIN CONTENT -->
+   <center>
+      <VBox prefHeight="1011.0" prefWidth="1246.0" spacing="15">
+         <padding>
+            <Insets bottom="15" left="15" right="15" top="15" />
+         </padding>
+         <!-- CHART ROW 1 -->
+         <HBox spacing="15">
+            <VBox>
+               <Label text="Sales Trend" />
+               <LineChart fx:id="salesLineChart" prefHeight="250" prefWidth="500">
+                  <xAxis>
+                     <CategoryAxis label="Date" />
+                  </xAxis>
+                  <yAxis>
+                     <NumberAxis label="Sales Amount" />
+                  </yAxis>
+               </LineChart>
+            </VBox>
+
+            <VBox>
+               <Label text="Payment Methods" />
+               <PieChart fx:id="paymentPieChart" prefHeight="250" prefWidth="350" />
+            </VBox>
+         </HBox>
+
+         <!-- CHART ROW 2 -->
+         <HBox spacing="15">
+            <VBox>
+               <Label text="Top Selling Products" />
+               <BarChart fx:id="topProductsBarChart" prefHeight="250" prefWidth="500">
+                  <xAxis>
+                     <CategoryAxis label="Product" />
+                  </xAxis>
+                  <yAxis>
+                     <NumberAxis label="Quantity Sold" />
+                  </yAxis>
+               </BarChart>
+            </VBox>
+
+            <VBox>
+               <Label text="Inventory Status" />
+               <PieChart fx:id="inventoryPieChart" prefHeight="250" prefWidth="350" />
+            </VBox>
+         </HBox>
+
+         <!-- TABLES -->
+         <HBox prefHeight="417.0" prefWidth="1136.0" spacing="15">
+
+            <!-- TOP PRODUCTS TABLE -->
+            <VBox prefHeight="417.0" prefWidth="272.0">
+               <Label text="Top Products" />
+               <TableView fx:id="topProductsTable" prefWidth="400">
+                  <columns>
+                     <TableColumn fx:id="colProductName" prefWidth="128.0" text="Product" />
+                     <TableColumn fx:id="colQtySold" prefWidth="51.0" text="Qty Sold" />
+                     <TableColumn fx:id="colRevenue" prefWidth="91.0" text="Revenue" />
+                  </columns>
+               </TableView>
+            </VBox>
+
+            <!-- LOW STOCK TABLE -->
+            <VBox prefHeight="417.0" prefWidth="219.0">
+               <Label text="Low Stock Alerts" />
+               <TableView fx:id="lowStockTable" prefWidth="350">
+                  <columns>
+                     <TableColumn fx:id="colLowProduct" prefWidth="150.0" text="Product" />
+                     <TableColumn fx:id="colLowStock" prefWidth="68.0" text="Stock" />
+                  </columns>
+               </TableView>
+            </VBox>
+
+            <!-- EXPIRY TABLE -->
+            <VBox prefHeight="417.0" prefWidth="217.0">
+               <Label text="Expiring Soon" />
+               <TableView fx:id="expiryTable" prefWidth="350">
+                  <columns>
+                     <TableColumn fx:id="colExpProduct" prefWidth="132.0" text="Product" />
+                     <TableColumn fx:id="colExpiryDate" prefWidth="83.0" text="Expiry Date" />
+                  </columns>
+               </TableView>
+            </VBox>
+
+         </HBox>
+
+      </VBox>
+   </center>
+
+</BorderPane>

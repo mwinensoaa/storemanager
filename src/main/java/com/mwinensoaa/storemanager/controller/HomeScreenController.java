@@ -114,7 +114,7 @@ public class HomeScreenController implements Initializable {
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         initImageView();
         initLabels();
-        Tooltip.install(btnTransaction, new Tooltip("This is something I am trying to see"));
+        //Tooltip.install(btnTransaction, new Tooltip("This is something I am trying to see"));
         initButtonEvents();
         initLabels();
         lbRefresh.setOnMouseClicked(event -> {

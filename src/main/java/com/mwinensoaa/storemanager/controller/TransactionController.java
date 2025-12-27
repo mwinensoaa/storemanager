@@ -87,11 +87,9 @@ public class TransactionController implements Initializable {
             tcProductName.setText(bundle.getString("lbProduct"));
             tcQuantity.setText(bundle.getString("lbQuantity"));
             tcTotal.setText(bundle.getString("lbPrice"));
-
         }
         if(cashier != null){
             currentCashier = cashier;
-
         }
    }
 
@@ -119,7 +117,7 @@ public class TransactionController implements Initializable {
             ProductRepo.getInstance().minusProduct(sale.getProductName(),sale.getQuantity());
 
         }
-       Receipt.clearReceipt();
+       Receipt.clearItems();
     }
 
     private void removeItem() {
@@ -154,6 +152,7 @@ public class TransactionController implements Initializable {
             }
            taReceipt.setText(Receipt.buildReceipt());
            lbGrandTotal.setText(Receipt.getGrandTotal());
+           tfQuantity.clear();
         }
     }
 
@@ -194,7 +193,6 @@ public class TransactionController implements Initializable {
     public static void printReceipt(TextArea textArea) {
         PrinterJob printerJob = PrinterJob.createPrinterJob();
         if (printerJob == null) {
-            System.out.println("No printer available.");
             return;
         }
         boolean proceed = printerJob.showPrintDialog(textArea.getScene().getWindow());
@@ -206,6 +204,7 @@ public class TransactionController implements Initializable {
                 printerJob.endJob();
             }
         }
+        textArea.setText("");
     }
 
 

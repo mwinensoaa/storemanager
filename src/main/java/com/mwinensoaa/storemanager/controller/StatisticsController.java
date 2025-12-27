@@ -3,6 +3,7 @@ package com.mwinensoaa.storemanager.controller;
 import com.mwinensoaa.storemanager.entities.Cashier;
 import com.mwinensoaa.storemanager.entities.Sale;
 import com.mwinensoaa.storemanager.repositories.CashierRepo;
+import com.mwinensoaa.storemanager.repositories.ProductRepo;
 import com.mwinensoaa.storemanager.repositories.SaleRepo;
 import com.mwinensoaa.storemanager.utils.GeneralUtils;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -14,6 +15,7 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,13 +29,30 @@ import java.util.function.Predicate;
 
 public class StatisticsController implements Initializable {
     @FXML private Pane pane;
-    @FXML private Label dialogTitle;
     @FXML private FontAwesomeIconView lbClose;
     @FXML private ImageView imgLogo;
     @FXML private ListView<String> listView;
     @FXML private TextField tfSearch;
     @FXML private TextField tfSearchTable;
+    @FXML private Button btnPrintReport;
     @FXML private FontAwesomeIconView faRefresh;
+
+    @FXML private Label dialogTitle;
+
+    @FXML private NumberAxis lbQuantitySold;
+    @FXML private NumberAxis lbSalesAmount;
+    @FXML private CategoryAxis lbSalesProduct;
+    @FXML private CategoryAxis lbSalesDate;
+
+    @FXML private Label lbSalesStatus;
+    @FXML private Label lbCashier;
+    @FXML private Label lbTopSellingProducts;
+    @FXML private Label lbLowStockAlert;
+    @FXML private Label lbExpiringSoon;
+    @FXML private Label lbTopProducts;
+    @FXML private Label lbSales;
+    @FXML private Label lbSalesTrend;
+
 
     @FXML private TableColumn<InnerSale, String> tcDate;
     @FXML private TableColumn<InnerSale, String> tcQuantity;
@@ -42,8 +61,28 @@ public class StatisticsController implements Initializable {
     @FXML private TableColumn<InnerSale, String> tcTotal;
     @FXML private TableView<InnerSale> tableView;
 
+    @FXML private TableView<InnerLowStock> tableLowStockAlert;
+    @FXML private TableColumn<InnerLowStock, String> tcLowStockProductName;
+    @FXML private TableColumn<InnerLowStock, String> tcLowStock;
+
+    @FXML private TableView<InnerExpiring> tableExpiringSoon;
+    @FXML private TableColumn<InnerExpiring, String> tcExpiringProductName;
+    @FXML private TableColumn<InnerExpiring, String> tcExpiringDate;
+
+    @FXML private TableView<InnerTopSeller> tableTopProducts;
+    @FXML private TableColumn<InnerTopSeller, String> tcTopProductName;
+    @FXML private TableColumn<InnerTopSeller, String> tcTopProductQuantity;
+    @FXML private TableColumn<InnerTopSeller, String> tcTopProductRevenue;
+
+    @FXML private LineChart<String, Number> salesLineChart;
+    @FXML private BarChart<String, Number> topProductsBarChart;
+    @FXML private PieChart paymentPieChart, inventoryPieChart;
+
+    
+
     private List<Cashier> cashiers;
     private Cashier currentCashier;
+    private ResourceBundle bundle;
 
 
     @Override
@@ -57,8 +96,10 @@ public class StatisticsController implements Initializable {
          faRefresh.setOnMouseClicked(mouseEvent -> refreshCashierList());
 
          enableFiltering();
-         iniTableColumns();
+         initTableColumns();
          enableTableFiltering();
+
+         loadInventoryStatus();
     }
 
 
@@ -100,13 +141,22 @@ public class StatisticsController implements Initializable {
         tableView.setItems(sortedData);
     }
 
-    private void iniTableColumns() {
+    private void initTableColumns() {
         tcItemName.setCellValueFactory(cellData -> cellData.getValue().itemNameProperty());
         tcQuantity.setCellValueFactory(cellData -> cellData.getValue().quantityProperty());
         tcTotal.setCellValueFactory(cellData -> cellData.getValue().totalAmountProperty());
         tcCashier.setCellValueFactory(cellData -> cellData.getValue().cashierProperty());
         tcDate.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
     }
+
+    private void initInnerTopSellerTableColumns() {
+        tcItemName.setCellValueFactory(cellData -> cellData.getValue().itemNameProperty());
+        tcQuantity.setCellValueFactory(cellData -> cellData.getValue().quantityProperty());
+        tcTotal.setCellValueFactory(cellData -> cellData.getValue().totalAmountProperty());
+        tcCashier.setCellValueFactory(cellData -> cellData.getValue().cashierProperty());
+        tcDate.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
+    }
+
 
     private void refreshCashierList(){
         if(!cashiers.isEmpty()){
@@ -139,20 +189,40 @@ public class StatisticsController implements Initializable {
 
     public void initL18N(ResourceBundle bundle, Cashier cashier){
         if(bundle != null){
-//            this.bundle = bundle;
-              dialogTitle.setText(bundle.getString("lbStats")); ;
-//            errorHeader = bundle.getString("txt_dialog_error_header");
-//            successHeader = bundle.getString("txt_dialog_success_header");
-//            btnAddItem.setText(bundle.getString("lbAdd"));
-//            btnProcessTransaction.setText(bundle.getString("processTransaction"));
-//            lbTotalAmount.setText(bundle.getString("lbPrice"));
-//            tfQuantity.setPromptText(bundle.getString("lbQuantity"));
+            this.bundle = bundle;
+            dialogTitle.setText(bundle.getString("lbStats"));
+            btnPrintReport.setText(bundle.getString("lbPrintReport"));
+            lbSales.setText(bundle.getString("lbSales"));
+            lbCashier.setText(bundle.getString("lbCashier"));
+            lbTopProducts.setText(bundle.getString("lbTopProducts"));
+            lbLowStockAlert.setText(bundle.getString("lbLowStock"));
+            lbExpiringSoon.setText(bundle.getString("lbExpiringSoon"));
+            lbTopSellingProducts.setText(bundle.getString("lbTopSellingProducts"));
+            lbSalesStatus.setText(bundle.getString("lbSalesStatus"));
+            lbSalesTrend.setText(bundle.getString("lbSalesTrend"));
+
+            lbSalesProduct.setLabel(bundle.getString("lbProduct"));
+            lbSalesAmount.setLabel(bundle.getString("lbSalesAmount"));
+            lbQuantitySold.setLabel(bundle.getString("lbQuantitySold"));
+            lbSalesDate.setLabel(bundle.getString("lbDate"));
+
             tfSearch.setPromptText(bundle.getString("tfSearch"));
             tcItemName.setText(bundle.getString("lbProduct"));
             tcQuantity.setText(bundle.getString("lbQuantity"));
             tcCashier.setText(bundle.getString("lbCashier"));
             tcDate.setText(bundle.getString("lbDate"));
             tcTotal.setText(bundle.getString("lbPrice"));
+
+            tcTopProductName.setText(bundle.getString("lbProduct"));
+            tcTopProductQuantity.setText(bundle.getString("lbQuantity"));
+            tcTopProductRevenue.setText(bundle.getString("lbRevenue"));
+
+            tcExpiringProductName.setText(bundle.getString("lbProduct"));
+            tcExpiringDate.setText(bundle.getString("lbExpiring"));
+
+            tcLowStock.setText(bundle.getString("lbStock"));
+            tcLowStockProductName.setText(bundle.getString("lbProduct"));
+
         }
         if(cashier != null){
             currentCashier = cashier;
@@ -194,7 +264,91 @@ public class StatisticsController implements Initializable {
 
         public String getTotalAmountProperty() {return totalAmountProperty.get();}
         public StringProperty totalAmountProperty() {return totalAmountProperty;}
+    }
 
+    private static class InnerTopSeller{
+        private final StringProperty itemNameProperty;
+        private final StringProperty quantityProperty;
+        private final StringProperty totalRevenueProperty;
+
+        private InnerTopSeller(Sale sale) {
+            itemNameProperty = new SimpleStringProperty(sale.getProductName());
+            quantityProperty = new SimpleStringProperty(String.valueOf(sale.getQuantity()));
+            totalRevenueProperty = new SimpleStringProperty(String.valueOf(sale.getTotalPrice()));
+        }
+        public String getItemNameProperty() {
+            return itemNameProperty.get();
+        }
+        public StringProperty itemNameProperty() {
+            return itemNameProperty;
+        }
+        public String getQuantityProperty() {return quantityProperty.get();}
+        public StringProperty quantityProperty() {return quantityProperty;}
+        public String getTotalRevenueProperty() {return totalRevenueProperty.get();}
+        public StringProperty totalAmountProperty() {return totalRevenueProperty;}
+    }
+
+    private static class InnerLowStock{
+        private final StringProperty itemNameProperty;
+        private final StringProperty stockProperty;
+
+
+        private InnerLowStock(Sale sale) {
+            itemNameProperty = new SimpleStringProperty(sale.getProductName());
+            stockProperty = new SimpleStringProperty(String.valueOf(sale.getQuantity()));
+        }
+        public String getItemNameProperty() {
+            return itemNameProperty.get();
+        }
+        public StringProperty itemNameProperty() {
+            return itemNameProperty;
+        }
+        public String getStockProperty() {return stockProperty.get();}
+        public StringProperty quantityProperty() {return stockProperty;}
+
+    }
+    private static class InnerExpiring{
+        private final StringProperty itemNameProperty;
+        private final StringProperty expiryDateProperty;
+
+
+        private InnerExpiring(Sale sale) {
+            itemNameProperty = new SimpleStringProperty(sale.getProductName());
+            expiryDateProperty = new SimpleStringProperty(String.valueOf(sale.getQuantity()));
+        }
+
+        public String getItemNameProperty() {return itemNameProperty.get();}
+        public StringProperty itemNameProperty() {return itemNameProperty;}
+        public String getExpiryDateProperty() {return expiryDateProperty.get();}
+        public StringProperty quantityProperty() {return expiryDateProperty;}
+    }
+
+
+
+
+    private void loadSalesTrend() {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+//        StatsDAO.getDailySales().forEach(d ->
+//                series.getData().add(new XYChart.Data<>(d.getDate(), d.getAmount()))
+//        );
+        salesLineChart.getData().add(series);
+    }
+
+    private void loadTopProducts() {
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+//        StatsDAO.getTopProducts().forEach(p ->
+//                series.getData().add(new XYChart.Data<>(p.getName(), p.getQty()))
+//        );
+        topProductsBarChart.getData().add(series);
+    }
+
+    private void loadInventoryStatus() {
+        ProductRepo productRepo = ProductRepo.getInstance();
+        inventoryPieChart.getData().addAll(
+                new PieChart.Data("In Stock", productRepo.getProductsCount(100)),
+                new PieChart.Data("Low Stock", productRepo.getProductsCount(10)),
+                new PieChart.Data("Out of Stock", productRepo.getProductsCount(0))
+        );
     }
 
 }

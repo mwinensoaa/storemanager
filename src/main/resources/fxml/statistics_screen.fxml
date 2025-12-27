@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -12,16 +17,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="404.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mwinensoaa.storemanager.controller.StatisticsController">
+<BorderPane prefHeight="674.0" prefWidth="1026.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mwinensoaa.storemanager.controller.StatisticsController">
    <top>
       <Pane fx:id="pane" prefHeight="37.0" prefWidth="554.0" BorderPane.alignment="CENTER">
          <children>
-            <FontAwesomeIconView fx:id="lbClose" fill="WHITE" glyphName="CLOSE" layoutX="824.0" layoutY="23.0" size="20" />
+            <FontAwesomeIconView fx:id="lbClose" fill="WHITE" glyphName="CLOSE" layoutX="986.0" layoutY="23.0" size="20" />
             <ImageView fx:id="imgLogo" fitHeight="19.0" fitWidth="32.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="dialogTitle" alignment="CENTER" layoutX="337.0" layoutY="9.0" prefHeight="17.0" prefWidth="186.0" text="Statistics">
+            <Label fx:id="dialogTitle" alignment="CENTER" layoutX="444.0" layoutY="9.0" prefHeight="17.0" prefWidth="186.0" text="Statistics">
                <font>
                   <Font size="15.0" />
                </font>
@@ -38,44 +44,123 @@
       <Pane prefHeight="212.0" prefWidth="22.0" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="606.0" spacing="15.0">
-         <children>
-            <AnchorPane prefHeight="46.0" prefWidth="574.0">
-               <children>
-                  <TextField fx:id="tfSearchTable" layoutY="2.0" prefHeight="25.0" prefWidth="166.0" promptText="Search" />
-                  <Button fx:id="btnProcessTransaction" layoutX="332.0" layoutY="2.0" prefHeight="29.0" prefWidth="126.0" text="Print report" textFill="WHITE" />
-               </children>
-            </AnchorPane>
-         </children>
-      </HBox>
+      <HBox alignment="CENTER" prefHeight="29.0" prefWidth="857.0" spacing="15.0" />
    </bottom>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="3.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="580.0" prefWidth="982.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="212.0" prefWidth="116.0" spacing="3.0">
+            <AnchorPane prefHeight="12.0" prefWidth="982.0">
                <children>
-                  <TextField fx:id="tfSearch" prefHeight="25.0" prefWidth="166.0" promptText="Search" />
-                  <ListView fx:id="listView" prefHeight="261.0" prefWidth="114.0" />
-                  <HBox alignment="CENTER" prefHeight="32.0" prefWidth="114.0">
+                  <Label fx:id="lbTopProducts" alignment="CENTER" layoutX="708.0" layoutY="2.0" prefHeight="17.0" prefWidth="176.0" text="Top Products" />
+                  <Label fx:id="lbCashier" alignment="CENTER" layoutX="5.0" layoutY="2.0" prefHeight="17.0" prefWidth="101.0" text="Cashier" />
+                  <Label fx:id="lbSales" alignment="CENTER" layoutX="297.0" layoutY="2.0" prefHeight="17.0" prefWidth="176.0" text="Sales" />
+               </children>
+            </AnchorPane>
+            <HBox prefHeight="336.0" prefWidth="982.0" spacing="3.0">
+               <children>
+                  <VBox prefHeight="212.0" prefWidth="116.0" spacing="3.0">
                      <children>
-                        <FontAwesomeIconView fx:id="faRefresh" fill="#59c940" glyphName="REFRESH" size="25" />
+                        <TextField fx:id="tfSearch" prefHeight="25.0" prefWidth="166.0" promptText="Search" />
+                        <ListView fx:id="listView" prefHeight="261.0" prefWidth="114.0" />
+                        <HBox alignment="CENTER" prefHeight="32.0" prefWidth="114.0">
+                           <children>
+                              <FontAwesomeIconView fx:id="faRefresh" fill="#59c940" glyphName="REFRESH" size="25" />
+                           </children>
+                        </HBox>
                      </children>
-                  </HBox>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="321.0" prefWidth="465.0">
+                     <children>
+                        <TableView fx:id="tableView" prefHeight="329.0" prefWidth="443.0">
+                          <columns>
+                            <TableColumn fx:id="tcDate" prefWidth="70.0" text="Date" />
+                            <TableColumn fx:id="tcCashier" prefWidth="152.0" text="Cashier" />
+                              <TableColumn fx:id="tcItemName" minWidth="1.0" prefWidth="129.0" text="Item name" />
+                              <TableColumn fx:id="tcQuantity" minWidth="1.0" prefWidth="56.0" text="Qty" />
+                              <TableColumn fx:id="tcTotal" minWidth="1.0" prefWidth="56.0" text="Total" />
+                          </columns>
+                        </TableView>
+                        <AnchorPane prefHeight="46.0" prefWidth="574.0">
+                           <children>
+                              <TextField fx:id="tfSearchTable" layoutY="2.0" prefHeight="25.0" prefWidth="166.0" promptText="Search" />
+                              <Button fx:id="btnPrintReport" layoutX="332.0" layoutY="2.0" prefHeight="29.0" prefWidth="132.0" text="Print report" textFill="WHITE" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="321.0" prefWidth="395.0">
+                     <children>
+                        <TableView fx:id="tableTopProducts" prefHeight="152.0" prefWidth="311.0">
+                          <columns>
+                            <TableColumn fx:id="tcTopProductName" prefWidth="186.0" text="Product" />
+                            <TableColumn fx:id="tcTopProductQuantity" prefWidth="88.0" text="Qty" />
+                              <TableColumn fx:id="tcTopProductRevenue" prefWidth="120.0" text="Revenue" />
+                          </columns>
+                        </TableView>
+                        <AnchorPane prefHeight="22.0" prefWidth="395.0">
+                           <children>
+                              <Label fx:id="lbLowStockAlert" alignment="TOP_LEFT" layoutX="2.0" layoutY="1.0" prefHeight="17.0" prefWidth="176.0" text="Low stock alert" />
+                              <Label fx:id="lbExpiringSoon" alignment="TOP_RIGHT" layoutX="205.0" layoutY="1.0" prefHeight="17.0" prefWidth="189.0" text="Expiring soon" />
+                           </children>
+                        </AnchorPane>
+                        <HBox prefHeight="174.0" prefWidth="395.0" spacing="10.0">
+                           <children>
+                              <TableView fx:id="tableLowStockAlert" prefHeight="155.0" prefWidth="194.0">
+                                <columns>
+                                  <TableColumn fx:id="tcLowStockProductName" prefWidth="112.0" text="Product" />
+                                  <TableColumn fx:id="tcLowStock" prefWidth="79.0" text="Stock" />
+                                </columns>
+                              </TableView>
+                              <TableView fx:id="tableExpiringSoon" layoutX="10.0" layoutY="10.0" prefHeight="158.0" prefWidth="197.0">
+                                 <columns>
+                                    <TableColumn fx:id="tcExpiringProductName" prefWidth="107.0" text="Product" />
+                                    <TableColumn fx:id="tcExpiringDate" prefWidth="83.0" text="Expiring" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-            <VBox layoutX="10.0" layoutY="10.0" prefHeight="321.0" prefWidth="465.0">
+            </HBox>
+            <Region prefHeight="11.0" prefWidth="982.0" />
+            <HBox prefHeight="230.0" prefWidth="982.0" spacing="10.0">
                <children>
-                  <TableView fx:id="tableView" prefHeight="329.0" prefWidth="443.0">
-                    <columns>
-                      <TableColumn fx:id="tcDate" prefWidth="70.0" text="Date" />
-                      <TableColumn fx:id="tcCashier" prefWidth="152.0" text="Cashier" />
-                        <TableColumn fx:id="tcItemName" minWidth="1.0" prefWidth="129.0" text="Item name" />
-                        <TableColumn fx:id="tcQuantity" minWidth="1.0" prefWidth="56.0" text="Qty" />
-                        <TableColumn fx:id="tcTotal" minWidth="1.0" prefWidth="56.0" text="Total" />
-                    </columns>
-                  </TableView>
+                  <VBox prefHeight="196.0" prefWidth="388.0">
+                     <children>
+                        <Label fx:id="lbSalesTrend" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="327.0" text="Sales Trend" />
+                        <LineChart fx:id="salesLineChart" prefHeight="213.0" prefWidth="388.0">
+                           <xAxis>
+                              <CategoryAxis fx:id="lbSalesDate" label="Date" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="lbSalesAmount" label="Sales Amount" />
+                           </yAxis>
+                        </LineChart>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="10.0" layoutY="10.0" prefHeight="196.0" prefWidth="388.0">
+                     <children>
+                        <Label fx:id="lbTopSellingProducts" alignment="CENTER" prefHeight="17.0" prefWidth="327.0" text="Top Selling Products" />
+                        <BarChart fx:id="topProductsBarChart" prefHeight="250" prefWidth="500">
+                           <xAxis>
+                              <CategoryAxis fx:id="lbSalesProduct" label="Product" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="lbQuantitySold" label="Quantity Sold" />
+                           </yAxis>
+                        </BarChart>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="408.0" layoutY="10.0" prefHeight="228.0" prefWidth="253.0">
+                     <children>
+                        <Label fx:id="lbSalesStatus" alignment="CENTER" prefHeight="17.0" prefWidth="327.0" text="Inventory Status" />
+                        <PieChart fx:id="inventoryPieChart" prefHeight="250" prefWidth="350" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
-         </children></HBox>
+            </HBox>
+         </children>
+      </VBox>
    </center>
 </BorderPane>

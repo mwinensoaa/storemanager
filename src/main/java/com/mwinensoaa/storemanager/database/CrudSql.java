@@ -17,6 +17,8 @@ public class CrudSql {
     public static final String RETRIEVE_PRODUCT_BY_ID = "SELECT p FROM Product p WHERE p.productId = ?1";
     public static final String RETRIEVE_PRODUCT_BY_NAME = "SELECT p FROM Product p WHERE p.productName = ?1";
     public static final String RETRIEVE_ALL_PRODUCT = "SELECT DISTINCT p FROM Product p";
+    public static final String RETRIEVE_PRODUCT_COUNT = "SELECT COUNT(p) FROM Product p";
+    public static final String RETRIEVE_PRODUCT_STOCK_COUNT = "SELECT COUNT(p) FROM Product p WHERE p.quantityInStock <= ?1";
     public static final String RETRIEVE_ALL_PAYMENT = "SELECT p FROM Payment p WHERE p.paymentId = ?1";
     public static final String RETRIEVE_PAYMENT_BY_CASHIER = "SELECT * FROM Payment p WHERE cashierId = ?1";
     public static final String RETRIEVE_PAYMENT_BY_DATE = "SELECT * FROM Payment p WHERE paymentDate = ?1";

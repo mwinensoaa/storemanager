@@ -48,6 +48,31 @@ public class ProductRepo implements ProductFacade {
     }
 
     @Override
+    public int getProductsCount() {
+        try (Session session = DBConnection.getOpenedSession()) {
+            session.beginTransaction();
+            Long productCount = session.createQuery(CrudSql.RETRIEVE_PRODUCT_COUNT, Long.class).uniqueResult();
+            session.getTransaction().commit();
+            return productCount != null ? productCount.intValue() : 0;
+        } catch (HibernateException hibernateException) {
+            return 0;
+        }
+    }
+
+    @Override
+    public int getProductsCount(int count) {
+        try (Session session = DBConnection.getOpenedSession()) {
+            session.beginTransaction();
+            Long productCount = session.createQuery(CrudSql.RETRIEVE_PRODUCT_STOCK_COUNT, Long.class)
+                    .setParameter(1, count).uniqueResult();
+            session.getTransaction().commit();
+            return productCount != null ? productCount.intValue() : 0;
+        } catch (HibernateException hibernateException) {
+            return 0;
+        }
+    }
+
+    @Override
     public Product getProduct(String productId) {
         try (Session session = DBConnection.getOpenedSession()) {
             session.beginTransaction();
